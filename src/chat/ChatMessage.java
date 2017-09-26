@@ -14,9 +14,7 @@ public class ChatMessage implements Serializable {
 
 	protected static final long serialVersionUID = 1112122200L;
 
-	static final int WHOISIN = 0, MESSAGE = 1, LOGOUT = 2, LOGIN = 3, 
-                AuthenticationPass = 4, AuthenticationNotPass = 5, SERVERSTOPPED = 6,
-                MESSAGEHISTORY = 7;
+	static final int WHOISIN = 0, MESSAGE = 1, LOGOUT = 2, AuthenticationPass = 3, AuthenticationNotPass = 4;
 	private int type;
 	private String message;
 

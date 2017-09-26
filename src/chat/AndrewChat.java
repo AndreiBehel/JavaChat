@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author Andrew
  */
-public class ChatProgram extends javax.swing.JFrame {
+public class AndrewChat extends javax.swing.JFrame {
 
     /**
-     * Creates new form ChatProgram
+     * Creates new form AndrewChat
      */
-    public ChatProgram() {
+    public AndrewChat() {
         initComponents();
     }
 
@@ -47,20 +47,6 @@ public class ChatProgram extends javax.swing.JFrame {
         ClientsDialog = new javax.swing.JDialog();
         NumOfClientsTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        AboutDialog = new javax.swing.JDialog();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        PropDialog = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         OutputTextPane = new javax.swing.JTextPane();
@@ -95,8 +81,6 @@ public class ChatProgram extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         ConnectDialog.setTitle("Propeties");
-        ConnectDialog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        ConnectDialog.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(ChatProgram.class.getResource("/chat/images/network_connections.png")));
         ConnectDialog.setMinimumSize(new java.awt.Dimension(350, 400));
         ConnectDialog.setModal(true);
 
@@ -172,10 +156,10 @@ public class ChatProgram extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(NickNameTextField)
-                    .addComponent(PassPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NickNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PassPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,8 +239,8 @@ public class ChatProgram extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(NumOfClientsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addComponent(NumOfClientsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(283, Short.MAX_VALUE))
         );
         ClientsDialogLayout.setVerticalGroup(
             ClientsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,150 +252,8 @@ public class ChatProgram extends javax.swing.JFrame {
                 .addContainerGap(269, Short.MAX_VALUE))
         );
 
-        AboutDialog.setTitle("About");
-        AboutDialog.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(ChatProgram.class.getResource("/chat/images/info.png")));
-        AboutDialog.setMinimumSize(new java.awt.Dimension(400, 210));
-        AboutDialog.setModal(true);
-        AboutDialog.setResizable(false);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Messenger Program");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("Program is created and designed by ");
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setText("Andrei Behel");
-
-        jLabel11.setText("2015");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel12.setText("Brest State Technical University");
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel13.setText("as the term project in OAIP");
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel14.setText("Intelligent Information Technologies Department");
-
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/images/logo.png"))); // NOI18N
-
-        javax.swing.GroupLayout AboutDialogLayout = new javax.swing.GroupLayout(AboutDialog.getContentPane());
-        AboutDialog.getContentPane().setLayout(AboutDialogLayout);
-        AboutDialogLayout.setHorizontalGroup(
-            AboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AboutDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(AboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel14))
-                .addContainerGap())
-            .addGroup(AboutDialogLayout.createSequentialGroup()
-                .addGap(172, 172, 172)
-                .addComponent(jLabel11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        AboutDialogLayout.setVerticalGroup(
-            AboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AboutDialogLayout.createSequentialGroup()
-                .addGroup(AboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AboutDialogLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(AboutDialogLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(jLabel14)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addContainerGap())
-        );
-
-        PropDialog.setTitle("Propeties");
-        PropDialog.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(ChatProgram.class.getResource("/chat/images/stock_folder_properties.png")));
-        PropDialog.setMinimumSize(new java.awt.Dimension(400, 480));
-        PropDialog.setModal(true);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Server"));
-        jPanel1.setToolTipText("");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 131, Short.MAX_VALUE)
-        );
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Client"));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 172, Short.MAX_VALUE)
-        );
-
-        jButton3.setText("Apply");
-
-        jButton4.setText("Cancel");
-
-        javax.swing.GroupLayout PropDialogLayout = new javax.swing.GroupLayout(PropDialog.getContentPane());
-        PropDialog.getContentPane().setLayout(PropDialogLayout);
-        PropDialogLayout.setHorizontalGroup(
-            PropDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PropDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PropDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(PropDialogLayout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(29, 29, 29)
-                        .addComponent(jButton4)))
-                .addContainerGap())
-            .addGroup(PropDialogLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(10, 10, 10))
-        );
-        PropDialogLayout.setVerticalGroup(
-            PropDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PropDialogLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PropDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Andrews Chat");
-        setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(ChatProgram.class.getResource("/chat/images/logo.png")));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Client"));
 
@@ -430,18 +272,11 @@ public class ChatProgram extends javax.swing.JFrame {
         InputTextArea.setColumns(20);
         InputTextArea.setLineWrap(true);
         InputTextArea.setRows(5);
-        InputTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        InputTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                InputTextAreaKeyPressed(evt);
-            }
-        });
         jScrollPane5.setViewportView(InputTextArea);
 
         StatusLabel.setText("Offline");
 
-        DiscClButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/images/Shut-Down-icon.png"))); // NOI18N
-        DiscClButton.setToolTipText("Disconnect");
+        DiscClButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/Shut-Down-icon.png"))); // NOI18N
         DiscClButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         DiscClButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -456,14 +291,13 @@ public class ChatProgram extends javax.swing.JFrame {
             }
         });
 
-        StatusToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/images/offline.png"))); // NOI18N
-        StatusToggleButton.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/images/offline.png"))); // NOI18N
-        StatusToggleButton.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/images/online.png"))); // NOI18N
+        StatusToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/offline.png"))); // NOI18N
+        StatusToggleButton.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/offline.png"))); // NOI18N
+        StatusToggleButton.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/online.png"))); // NOI18N
         StatusToggleButton.setEnabled(false);
-        StatusToggleButton.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/images/online.png"))); // NOI18N
+        StatusToggleButton.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/online.png"))); // NOI18N
 
-        ClearMes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/images/gnome_edit_clear.png"))); // NOI18N
-        ClearMes.setToolTipText("Clear Messages");
+        ClearMes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/gnome_edit_clear.png"))); // NOI18N
         ClearMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClearMesActionPerformed(evt);
@@ -479,7 +313,7 @@ public class ChatProgram extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(195, 195, 195)
                 .addComponent(SendButton)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(StatusLabel)
@@ -510,10 +344,11 @@ public class ChatProgram extends javax.swing.JFrame {
                 .addComponent(SendButton))
         );
 
+        DiscClButton.getAccessibleContext().setAccessibleDescription("Disconnect");
+
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Server"));
 
         ServerStarButton.setText("Start");
-        ServerStarButton.setToolTipText("");
         ServerStarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ServerStarButtonActionPerformed(evt);
@@ -521,7 +356,6 @@ public class ChatProgram extends javax.swing.JFrame {
         });
 
         ServerStopButton.setText("Stop");
-        ServerStopButton.setToolTipText("");
         ServerStopButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ServerStopButtonActionPerformed(evt);
@@ -529,7 +363,6 @@ public class ChatProgram extends javax.swing.JFrame {
         });
 
         InfoClButton.setText("Clients");
-        InfoClButton.setToolTipText("");
         InfoClButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InfoClButtonActionPerformed(evt);
@@ -546,8 +379,7 @@ public class ChatProgram extends javax.swing.JFrame {
 
         ServerPortTextField.setText("9001");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/images/gnome_edit_clear.png"))); // NOI18N
-        jButton2.setToolTipText("Clear Server Log");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chat/gnome_edit_clear.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -612,6 +444,7 @@ public class ChatProgram extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         DisconnectMenuItem.setText("Disconnect");
+        DisconnectMenuItem.setEnabled(false);
         DisconnectMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DisconnectMenuItemActionPerformed(evt);
@@ -640,11 +473,6 @@ public class ChatProgram extends javax.swing.JFrame {
         PropetiesMenu.add(ProtetiesMenuItem);
 
         AboutMenuItem.setText("About");
-        AboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AboutMenuItemActionPerformed(evt);
-            }
-        });
         PropetiesMenu.add(AboutMenuItem);
 
         jMenuBar1.add(PropetiesMenu);
@@ -655,8 +483,8 @@ public class ChatProgram extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -674,8 +502,8 @@ public class ChatProgram extends javax.swing.JFrame {
 
     private void ProtetiesMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProtetiesMenuItemActionPerformed
         // TODO add your handling code here:
-        PropDialog.setLocationRelativeTo(null);
-        PropDialog.setVisible(true);
+        ConnectDialog.setLocationRelativeTo(null);
+        ConnectDialog.setVisible(true);
     }//GEN-LAST:event_ProtetiesMenuItemActionPerformed
 
     private void SendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendButtonActionPerformed
@@ -686,7 +514,7 @@ public class ChatProgram extends javax.swing.JFrame {
         }
         else {
             JOptionPane.showMessageDialog(this,
-                                    "Isn't Connected",
+                                    "Doesn't Connected",
                                     "No connection",
                                     JOptionPane.INFORMATION_MESSAGE);
         }
@@ -711,19 +539,18 @@ public class ChatProgram extends javax.swing.JFrame {
 
     private void InfoClButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoClButtonActionPerformed
         // TODO add your handling code here:
-        if(ChServer != null && ChServer.isAlive()) {
-            NumOfClientsTextField.setText(Integer.toString(ChServer.getNumOfClients()));
-            ClientsDialog.setLocationRelativeTo(this);
-            ClientsDialog.setVisible(true);
-        }
+        NumOfClientsTextField.setText(Integer.toString(ChServer.getNumOfClients()));
+        ClientsDialog.setLocationRelativeTo(null);
+        ClientsDialog.setVisible(true);
     }//GEN-LAST:event_InfoClButtonActionPerformed
 
     private void ServerStopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServerStopButtonActionPerformed
         // TODO add your handling code here:
         if(ChServer != null) {
-            ChServer.servStop();
+            ChServer.Serv_Stop();
             ServerOutputTextArea.append("Server has stopped.\n");
         }
+        DisconnectMenuItem.setEnabled(false);
     }//GEN-LAST:event_ServerStopButtonActionPerformed
 
     private void PortTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PortTextFieldActionPerformed
@@ -739,14 +566,20 @@ public class ChatProgram extends javax.swing.JFrame {
     private void ConnectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectButtonActionPerformed
         // TODO add your handling code here:
         OutputTextPane.setText("");
-        ChCl = new ChatClient(InputTextArea, OutputTextPane, StatusLabel, StatusToggleButton);
+        ChCl = new ChatClient(InputTextArea, OutputTextPane);
         ChCl.setClientInfo(NickNameTextField.getText(), PassPasswordField.getPassword().toString(), IPAddressTextField.getText(), PortTextField.getText());
         ConnectDialog.dispose();
         
         try {
             ChCl.start();
+            DisconnectMenuItem.setEnabled(true);
+            StatusLabel.setText("Online");
+            StatusToggleButton.setSelected(true);
         }
         catch(Exception e) {
+            StatusLabel.setText("Offline");
+            DisconnectMenuItem.setEnabled(false);
+            StatusToggleButton.setSelected(false);
             e.printStackTrace();
         }
     }//GEN-LAST:event_ConnectButtonActionPerformed
@@ -772,13 +605,15 @@ public class ChatProgram extends javax.swing.JFrame {
 
     private void IPAddressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IPAddressTextFieldActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_IPAddressTextFieldActionPerformed
 
     private void DisconnectMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisconnectMenuItemActionPerformed
         // TODO add your handling code here:
         if(ChCl != null){
             ChCl.dis();
+            StatusLabel.setText("Offline");
+            DisconnectMenuItem.setEnabled(false);
+            StatusToggleButton.setSelected(false);
         }  
     }//GEN-LAST:event_DisconnectMenuItemActionPerformed
 
@@ -786,12 +621,14 @@ public class ChatProgram extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(ChCl != null){
             ChCl.dis();
+            StatusLabel.setText("Offline");
+            DisconnectMenuItem.setEnabled(false);
+            StatusToggleButton.setSelected(false);
         }
     }//GEN-LAST:event_DiscClButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ChCl.listOfUsers();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ClearMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearMesActionPerformed
@@ -803,34 +640,6 @@ public class ChatProgram extends javax.swing.JFrame {
         // TODO add your handling code here:
         ServerOutputTextArea.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
-        // TODO add your handling code here:
-        AboutDialog.setLocationRelativeTo(null);
-        AboutDialog.setVisible(true);
-    }//GEN-LAST:event_AboutMenuItemActionPerformed
-
-    private void InputTextAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputTextAreaKeyPressed
-        // TODO add your handling code here:
-        //ignore enter key in the text area
-        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            evt.consume();
-        }
-        //CTRL + Enter combination is used for sending message 
-        if((evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) && ((evt.getModifiers() & java.awt.event.KeyEvent.CTRL_MASK) != 0)) {
-            if(ChCl != null) {
-                if(!InputTextArea.getText().equals("") && !InputTextArea.getText().equals('\n'))
-                    ChCl.sendMess(InputTextArea.getText());   
-            }
-            else {
-                JOptionPane.showMessageDialog(this,
-                                    "Isn't Connected",
-                                    "No connection to server!",
-                                    JOptionPane.INFORMATION_MESSAGE);
-            }
-        InputTextArea.setText(" ");
-        }
-    }//GEN-LAST:event_InputTextAreaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -849,27 +658,26 @@ public class ChatProgram extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChatProgram.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndrewChat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChatProgram.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndrewChat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChatProgram.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndrewChat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChatProgram.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndrewChat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChatProgram().setVisible(true);
+                new AndrewChat().setVisible(true);
             }
         });
     }
     private ChatClient ChCl;
     private ChatServer ChServer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog AboutDialog;
     private javax.swing.JMenuItem AboutMenuItem;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton ClearMes;
@@ -886,7 +694,6 @@ public class ChatProgram extends javax.swing.JFrame {
     private javax.swing.JTextPane OutputTextPane;
     private javax.swing.JPasswordField PassPasswordField;
     private javax.swing.JTextField PortTextField;
-    private javax.swing.JDialog PropDialog;
     private javax.swing.JMenu PropetiesMenu;
     private javax.swing.JMenuItem ProtetiesMenuItem;
     private javax.swing.JButton SendButton;
@@ -898,19 +705,9 @@ public class ChatProgram extends javax.swing.JFrame {
     private javax.swing.JToggleButton StatusToggleButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -919,8 +716,6 @@ public class ChatProgram extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

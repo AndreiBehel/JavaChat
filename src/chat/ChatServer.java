@@ -4,10 +4,13 @@
  */
 package chat;
 
-import java.lang.StringBuilder;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.InetAddress;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashSet;
@@ -23,18 +26,17 @@ public class ChatServer extends Thread {
     private static int PORT = 9001;
     private static int uniqId;
     private SimpleDateFormat sdf;
-    private boolean isServRunning = true;
+    private boolean IsRunning = true;
      
-    private static HashSet<String> names = new HashSet<String>();   
+    private static HashSet<String> names = new HashSet<String>();
+    private static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();   
     private static ArrayList<Handler> al;
-    private static ArrayList<String> client_messages;
 
     private JTextArea ServerOutput;
     
     public ChatServer(JTextArea out) {
         ServerOutput = out;
         al = new ArrayList<Handler>();
-        client_messages = new ArrayList<String>();
         sdf = new SimpleDateFormat("HH:mm:ss");
     }
     
@@ -45,24 +47,25 @@ public class ChatServer extends Thread {
     public int getNumOfClients() {
         return names.size();
     }
-    
     private void display(String msg) {
         String mess = sdf.format(new Date()) + " " + msg;
         ServerOutput.append(mess + "\n");
+
     }
-    
-    public void servStop() {
-        isServRunning = false;
+    public void Serv_Stop() {
+        IsRunning = false;
          try {
              new Socket("localhost" , PORT).close();
          } catch(IOException e) {};
+        names.clear();
+        writers.clear();
     }
     public void run() {
         try {
             ServerSocket listener = new ServerSocket(PORT);
-            display("The chat server is running.\nON PORT: " + PORT + "\n");
-            while (isServRunning) {
-                if(isServRunning) {
+            display("The chat server is running.\nport: " + PORT + "\n");
+            while (IsRunning) {
+                if(IsRunning) {
                     Handler h = new Handler(listener.accept());
                     al.add(h);
                     h.start();
@@ -75,30 +78,32 @@ public class ChatServer extends Thread {
                 listener.close();
                 Iterator <Handler> iterator = al.iterator();
                 while (iterator.hasNext()) {
-                    iterator.next().close();
+                    iterator.next().in.close();
+                    iterator.next().out.close();
+                    iterator.next().socket.close();
                 }
             } catch(IOException e) {
                 display("Exception closing the server and clients: " + e);
             }      
         } catch(Exception e) {
-            String msg = " Exception on new ServerSocket: " + e + "\n";
+            String msg = sdf.format(new Date()) + " Exception on new ServerSocket: " + e + "\n";
             display(msg);
         }
     }
     private synchronized void broadcast(String message) {//Rewrite function, all threat should work with it.
         String time = sdf.format(new Date());
         String messageLf = time + " " + message + "\n";
-        client_messages.add(messageLf);
+        ServerOutput.append(messageLf);
         
         for(int i = al.size(); --i >= 0;) {
-            if(!al.get(i).writeMsg(new ChatMessage(ChatMessage.MESSAGE, messageLf))) {
+            if(!al.get(i).writeMsg(messageLf)) {
                 al.remove(i);
-                display("Disconnected Client " + al.get(i).name + " removed from list.");
+                 display("Disconnected Client " + al.get(i).name + " removed from list.");
             }
         }
     }
     
-    private synchronized void remove(int id) {
+    synchronized void remove(int id) {
         Iterator <Handler> iter = al.iterator();
         while(iter.hasNext()) {
             if(iter.next().id == id) {
@@ -106,18 +111,6 @@ public class ChatServer extends Thread {
                 return;
             }
         }
-    }
-    
-    private synchronized boolean isNameUsed(String name) {
-        Iterator <Handler> iter = al.iterator();
-        while(iter.hasNext()) {
-            if(iter.next().name.equals(name)) {
-                display(name + " login is used.");
-                return true;
-            }
-        }
-        display(name + " just connected.");
-        return false;
     }
     
     private class Handler extends Thread {
@@ -138,14 +131,17 @@ public class ChatServer extends Thread {
             try {
                 out = new ObjectOutputStream(socket.getOutputStream());
                 in  = new ObjectInputStream(socket.getInputStream());
-                name = ((ChatMessage) in.readObject()).getMessage();
-                
-                if(isNameUsed(name)){
-                    writeMsg(new ChatMessage(ChatMessage.AuthenticationNotPass, ""));
+                name = (String) in.readObject();
+                Iterator <Handler> iter = al.iterator();
+                while(iter.hasNext()) {
+                    if(iter.next().name.equals(name)) {
+                        display(name + " login is used.");
+                        out.writeObject(new ChatMessage(ChatMessage.AuthenticationNotPass, ""));//rewrite
+                    }
                 }
-                else {
-                    writeMsg(new ChatMessage(ChatMessage.AuthenticationPass, ""));
-                }
+                out.writeObject(new ChatMessage(ChatMessage.AuthenticationPass, ""));
+                display(name + " just connected.");
+                //
             } catch(IOException e) {
                 display("Exception creating new Input/output Streams: " + e);
                 return;
@@ -172,7 +168,7 @@ public class ChatServer extends Thread {
         
         public void run() {
             boolean IsRunning = true;
-            while (IsRunning && isServRunning) {
+            while (IsRunning) {
                try {
                    cm = (ChatMessage) in.readObject();
                } catch(IOException e) {
@@ -182,7 +178,6 @@ public class ChatServer extends Thread {
                    break;
                }
                String message = cm.getMessage();
-               
                switch(cm.getType()) {
                    case ChatMessage.MESSAGE:
                        broadcast(name + ": " + message);
@@ -192,32 +187,24 @@ public class ChatServer extends Thread {
                        IsRunning = false;
                        break;
                    case ChatMessage.WHOISIN:
-                       StringBuilder list = new StringBuilder();
+                       writeMsg("List of the users connected at " + sdf.format(new Date()) + "\n");
                        for(int i = 0; i < al.size(); ++i) {
-                            list.append((i+1) + ") " + al.get(i).name + " since " + al.get(i).date + '\n');                           
+                            writeMsg((i+1) + ") " + al.get(i).name + " since " + al.get(i).date);//здесь нужно посылать в braodcast
                        }
-                       writeMsg(new ChatMessage(ChatMessage.WHOISIN, list.toString()));
-                       break;
-                   case ChatMessage.MESSAGEHISTORY:
-                       StringBuilder hist = new StringBuilder();
-                       Iterator <String> iter = client_messages.iterator();
-                       while(iter.hasNext()) {
-                           hist.append(iter.next() + '\n');
-                       }
-                       writeMsg(new ChatMessage(ChatMessage.MESSAGEHISTORY, hist.toString()));
                        break;
                }   
             }
             remove(id);
             close();        
         }
-        private boolean writeMsg(ChatMessage cm) {
+        private boolean writeMsg(String msg) {// переделать передачу списка юзеров
                if(!socket.isConnected()) {
                    close();
                    return false;
                }
                try {
-                   out.writeObject(cm);
+                   out.writeObject(new ChatMessage(ChatMessage.MESSAGE, msg));
+                   //out.writeObject(msg);
                } catch(IOException e) {
                    display("Error sending message to " + name);
                    display(e.toString());
